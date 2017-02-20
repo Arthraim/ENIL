@@ -42,9 +42,8 @@
                                     <action selector="monsterStrikingAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gla-hb-SZv"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G5L-Mm-yhQ">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="PLEASE WAIT..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="G5L-Mm-yhQ">
                                 <rect key="frame" x="36" y="40" width="303" height="516"/>
-                                <string key="text">NO AVAILABLE LINK  Click link below to go back to MONSTER STRIKE, then send invitation link via LINE. It will automatically go back to this app.</string>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

@@ -8,4 +8,6 @@ target 'ENIL' do
   # Pods for ENIL
   pod 'SnapKit', '~> 3.0.2'
   pod 'SwiftHEXColors', '~> 1.1.0'
+  pod 'Toast-Swift', '~> 2.0.0'
 end
+

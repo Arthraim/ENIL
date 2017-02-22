@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import SwiftHEXColors
+import Toast_Swift
 
 class ViewController: UIViewController {
 
@@ -109,6 +110,7 @@ class ViewController: UIViewController {
 
     func copyAction(_ sender: UIButton) {
         UIPasteboard.general.string = textView.text
+        view.makeToast("Copied to your clipboard~")
     }
 
     func shareAction(_ sender: UIButton) {

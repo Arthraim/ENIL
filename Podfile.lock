@@ -1,0 +1,15 @@
+PODS:
+  - SnapKit (3.0.2)
+  - SwiftHEXColors (1.1.0)
+
+DEPENDENCIES:
+  - SnapKit (~> 3.0.2)
+  - SwiftHEXColors (~> 1.1.0)
+
+SPEC CHECKSUMS:
+  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+  SwiftHEXColors: 8f7e364df7929e32cff9f9eeb044bb215167d6be
+
+PODFILE CHECKSUM: 43657efa7472abc2efde9a0db9dcce9a44626378
+
+COCOAPODS: 1.2.0

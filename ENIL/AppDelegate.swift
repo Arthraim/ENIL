@@ -12,8 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var viewController: ViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+
+        window = UIWindow(frame: UIScreen.main.bounds)
+        viewController = ViewController()
+        window?.rootViewController = UINavigationController.init(rootViewController: viewController!)
+        window?.makeKeyAndVisible()
 
         if let url: URL = launchOptions?[UIApplicationLaunchOptionsKey.url] as? URL {
             updateUI(content: extractTextFromURL(url: url),
@@ -26,8 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        updateUI(content: extractTextFromURL(url: url),
-                 shouldDelay: false)
+        updateUI(content: extractTextFromURL(url: url), shouldDelay: false)
         return true
     }
 
@@ -37,8 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func updateUI(content: String, shouldDelay: Bool) {
         let deadline = shouldDelay ? DispatchTime.now() + 1 : DispatchTime.now()
-        DispatchQueue.main.asyncAfter(deadline: deadline) {
-            (self.window?.rootViewController as? ViewController)?.textView.text = content
+        DispatchQueue.main.asyncAfter(deadline: deadline) { [unowned self] in
+            self.viewController?.updateText(text: content)
         }
     }
 

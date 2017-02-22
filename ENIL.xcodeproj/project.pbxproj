@@ -9,16 +9,18 @@
 /* Begin PBXBuildFile section */
 		8E842F1F1E5ABBE000822F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E842F1E1E5ABBE000822F06 /* AppDelegate.swift */; };
 		8E842F211E5ABBE000822F06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E842F201E5ABBE000822F06 /* ViewController.swift */; };
-		8E842F241E5ABBE000822F06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E842F221E5ABBE000822F06 /* Main.storyboard */; };
 		8E842F261E5ABBE000822F06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E842F251E5ABBE000822F06 /* Assets.xcassets */; };
 		8E842F291E5ABBE000822F06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E842F271E5ABBE000822F06 /* LaunchScreen.storyboard */; };
+		D29B796213D1756C0ADC1902 /* Pods_ENIL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33866CA84AF912F23E1D8CE5 /* Pods_ENIL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20CE10D672C7DC00F44F957E /* Pods-ENIL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ENIL.release.xcconfig"; path = "Pods/Target Support Files/Pods-ENIL/Pods-ENIL.release.xcconfig"; sourceTree = "<group>"; };
+		2D59C62BAE7EC8DD7F247546 /* Pods-ENIL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ENIL.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ENIL/Pods-ENIL.debug.xcconfig"; sourceTree = "<group>"; };
+		33866CA84AF912F23E1D8CE5 /* Pods_ENIL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ENIL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E842F1B1E5ABBE000822F06 /* ENIL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ENIL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E842F1E1E5ABBE000822F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E842F201E5ABBE000822F06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		8E842F231E5ABBE000822F06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E842F251E5ABBE000822F06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E842F281E5ABBE000822F06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E842F2A1E5ABBE000822F06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,17 +31,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D29B796213D1756C0ADC1902 /* Pods_ENIL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		83C29E959995201911444966 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				33866CA84AF912F23E1D8CE5 /* Pods_ENIL.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8E842F121E5ABBDF00822F06 = {
 			isa = PBXGroup;
 			children = (
 				8E842F1D1E5ABBE000822F06 /* ENIL */,
 				8E842F1C1E5ABBE000822F06 /* Products */,
+				F20CE07A5E85E338C67B5C88 /* Pods */,
+				83C29E959995201911444966 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +69,20 @@
 			children = (
 				8E842F1E1E5ABBE000822F06 /* AppDelegate.swift */,
 				8E842F201E5ABBE000822F06 /* ViewController.swift */,
-				8E842F221E5ABBE000822F06 /* Main.storyboard */,
 				8E842F251E5ABBE000822F06 /* Assets.xcassets */,
 				8E842F271E5ABBE000822F06 /* LaunchScreen.storyboard */,
 				8E842F2A1E5ABBE000822F06 /* Info.plist */,
 			);
 			path = ENIL;
+			sourceTree = "<group>";
+		};
+		F20CE07A5E85E338C67B5C88 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D59C62BAE7EC8DD7F247546 /* Pods-ENIL.debug.xcconfig */,
+				20CE10D672C7DC00F44F957E /* Pods-ENIL.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +92,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E842F2D1E5ABBE000822F06 /* Build configuration list for PBXNativeTarget "ENIL" */;
 			buildPhases = (
+				6E91627AAAE2244DB9EA7D5A /* [CP] Check Pods Manifest.lock */,
 				8E842F171E5ABBE000822F06 /* Sources */,
 				8E842F181E5ABBE000822F06 /* Frameworks */,
 				8E842F191E5ABBE000822F06 /* Resources */,
+				9B18C758638B1E3B7A7E235A /* [CP] Embed Pods Frameworks */,
+				AF8C267399F9171120527BFE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,11 +150,58 @@
 			files = (
 				8E842F291E5ABBE000822F06 /* LaunchScreen.storyboard in Resources */,
 				8E842F261E5ABBE000822F06 /* Assets.xcassets in Resources */,
-				8E842F241E5ABBE000822F06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6E91627AAAE2244DB9EA7D5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9B18C758638B1E3B7A7E235A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ENIL/Pods-ENIL-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AF8C267399F9171120527BFE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ENIL/Pods-ENIL-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8E842F171E5ABBE000822F06 /* Sources */ = {
@@ -145,14 +216,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8E842F221E5ABBE000822F06 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8E842F231E5ABBE000822F06 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8E842F271E5ABBE000822F06 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -259,6 +322,7 @@
 		};
 		8E842F2E1E5ABBE000822F06 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D59C62BAE7EC8DD7F247546 /* Pods-ENIL.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G6B63JMW7X;
@@ -273,6 +337,7 @@
 		};
 		8E842F2F1E5ABBE000822F06 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20CE10D672C7DC00F44F957E /* Pods-ENIL.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G6B63JMW7X;

@@ -1,18 +1,21 @@
 PODS:
   - SnapKit (3.0.2)
+  - STRegex (0.4.3)
   - SwiftHEXColors (1.1.0)
   - Toast-Swift (2.0.0)
 
 DEPENDENCIES:
   - SnapKit (~> 3.0.2)
+  - STRegex (~> 0.4.0)
   - SwiftHEXColors (~> 1.1.0)
   - Toast-Swift (~> 2.0.0)
 
 SPEC CHECKSUMS:
   SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+  STRegex: c7decbba8601717274774a3f341c4807a327a6d0
   SwiftHEXColors: 8f7e364df7929e32cff9f9eeb044bb215167d6be
   Toast-Swift: 5b2f8f720f7e78e48511f693df1f9c9a6e38a25a
 
-PODFILE CHECKSUM: 0dbece99dba86ee61e40172cec0db26d35a89b0e
+PODFILE CHECKSUM: f7e3d6075258bcda6a1d088847c6cc2e5c5e2267
 
 COCOAPODS: 1.2.0

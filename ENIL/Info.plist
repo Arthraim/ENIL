@@ -38,6 +38,16 @@
 				<string>lineauth</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>enil</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>enil</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>

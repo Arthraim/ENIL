@@ -44,7 +44,9 @@ class ViewController: UIViewController {
         title = "ENIL"
         view.backgroundColor = UIColor.white
 
-        textView.font = UIFont.systemFont(ofSize: 18)
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "ComicReggaeStd-B", size: 24)!]
+
+        textView.font = UIFont(name: "NewRodinProN-DB", size: 14)
         textView.textColor = UIColor(hexString: "333333")
         textView.isEditable = false
         textView.isSelectable = true
@@ -56,8 +58,8 @@ class ViewController: UIViewController {
             make.right.equalTo(view).offset(-20)
         }
 
-        shareButton.setTitle("ACTIONS", for: .normal)
-        shareButton.titleLabel?.font = UIFont.systemFont(ofSize: 22)
+        shareButton.setTitle("- ACTIONS -", for: .normal)
+        shareButton.titleLabel?.font = UIFont(name: "ComicReggaeStd-B", size: 22)
         view.addSubview(shareButton)
         shareButton.snp.makeConstraints({ (make) in
             make.top.equalTo(textView.snp.bottom).offset(20)
@@ -67,7 +69,7 @@ class ViewController: UIViewController {
         shareButton.addTarget(self, action: #selector(shareAction(_:)), for: .touchUpInside)
 
         copyRightLabel.text = "Copyright YANGAPP.com all rights reserved"
-        copyRightLabel.font = UIFont.systemFont(ofSize: 14)
+        copyRightLabel.font = UIFont(name: "NewRodinProN-DB", size: 11)
         copyRightLabel.textColor = UIColor(hexString: "999999")
         copyRightLabel.textAlignment = .center
         copyRightLabel.minimumScaleFactor = 0.5

@@ -11,8 +11,9 @@ import SnapKit
 import SwiftHEXColors
 import Toast_Swift
 import Regex
+import SafariServices
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextViewDelegate {
 
     var textView: UITextView!
     var shareButton: UIButton!
@@ -51,6 +52,7 @@ class ViewController: UIViewController {
         textView.isEditable = false
         textView.isSelectable = true
         textView.dataDetectorTypes = .link
+        textView.delegate = self
         view.addSubview(textView)
         textView.snp.makeConstraints { (make) in
             make.top.equalTo(view).offset(20 + 44 + 20)
@@ -135,6 +137,22 @@ class ViewController: UIViewController {
             let alert = UIAlertController(title: "Cannot open this link", message: nil, preferredStyle: .alert)
             UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
         }
+    }
+
+//  MARK: UITextViewDelegate
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        if #available(iOS 9.0, *) {
+            present(SFSafariViewController(url: URL), animated: true, completion: nil)
+            return false
+        } else {
+            return true
+        }
+    }
+
+    @available(iOS 10.0, *)
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        present(SFSafariViewController(url: URL), animated: true, completion: nil)
+        return false
     }
 
 }

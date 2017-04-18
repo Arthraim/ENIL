@@ -10,13 +10,13 @@ import UIKit
 import SnapKit
 import SwiftHEXColors
 import Toast_Swift
+import Regex
+import SafariServices
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextViewDelegate {
 
     var textView: UITextView!
-    var copyButton: UIButton!
     var shareButton: UIButton!
-    var monstaButton: UIButton!
     var copyRightLabel: UILabel!
 
     func updateText(text: String) {
@@ -35,9 +35,7 @@ class ViewController: UIViewController {
 
     func setUpControls() {
         textView = UITextView()
-        copyButton = UIButton(type: .system)
         shareButton = UIButton(type: .system)
-        monstaButton = UIButton(type: .system)
         copyRightLabel = UILabel()
     }
 
@@ -47,11 +45,14 @@ class ViewController: UIViewController {
         title = "ENIL"
         view.backgroundColor = UIColor.white
 
-        textView.font = UIFont.systemFont(ofSize: 18)
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "ComicReggaeStd-B", size: 24)!]
+
+        textView.font = UIFont(name: "NewRodinProN-DB", size: 14)
         textView.textColor = UIColor(hexString: "333333")
         textView.isEditable = false
         textView.isSelectable = true
         textView.dataDetectorTypes = .link
+        textView.delegate = self
         view.addSubview(textView)
         textView.snp.makeConstraints { (make) in
             make.top.equalTo(view).offset(20 + 44 + 20)
@@ -59,44 +60,24 @@ class ViewController: UIViewController {
             make.right.equalTo(view).offset(-20)
         }
 
-        copyButton.setTitle("Copy All", for: .normal)
-        copyButton.titleLabel?.font = UIFont.systemFont(ofSize: 22)
-        view.addSubview(copyButton)
-        copyButton.snp.makeConstraints({ (make) in
-            make.top.equalTo(textView.snp.bottom).offset(10)
-            make.left.equalTo(view).offset(20)
-        })
-        copyButton.addTarget(self, action: #selector(copyAction(_:)), for: .touchUpInside)
-
-        shareButton.setTitle("Share All", for: .normal)
-        shareButton.titleLabel?.font = UIFont.systemFont(ofSize: 22)
+        shareButton.setTitle("- ACTIONS -", for: .normal)
+        shareButton.titleLabel?.font = UIFont(name: "ComicReggaeStd-B", size: 22)
         view.addSubview(shareButton)
         shareButton.snp.makeConstraints({ (make) in
-            make.top.equalTo(copyButton)
-            make.left.equalTo(copyButton.snp.right).offset(10)
-            make.width.equalTo(copyButton)
+            make.top.equalTo(textView.snp.bottom).offset(20)
+            make.left.equalTo(view).offset(10)
+            make.right.equalTo(view).offset(-10)
         })
         shareButton.addTarget(self, action: #selector(shareAction(_:)), for: .touchUpInside)
 
-        monstaButton.setTitle("Go MonSt", for: .normal)
-        monstaButton.titleLabel?.font = UIFont.systemFont(ofSize: 22)
-        view.addSubview(monstaButton)
-        monstaButton.snp.makeConstraints({ (make) in
-            make.top.equalTo(shareButton)
-            make.left.equalTo(shareButton.snp.right).offset(10)
-            make.width.equalTo(shareButton)
-            make.right.equalTo(view).offset(-20)
-        })
-        monstaButton.addTarget(self, action: #selector(monstaAction(_:)), for: .touchUpInside)
-
         copyRightLabel.text = "Copyright YANGAPP.com all rights reserved"
-        copyRightLabel.font = UIFont.systemFont(ofSize: 14)
+        copyRightLabel.font = UIFont(name: "NewRodinProN-DB", size: 11)
         copyRightLabel.textColor = UIColor(hexString: "999999")
         copyRightLabel.textAlignment = .center
         copyRightLabel.minimumScaleFactor = 0.5
         view.addSubview(copyRightLabel)
         copyRightLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(copyButton.snp.bottom).offset(20)
+            make.top.equalTo(shareButton.snp.bottom).offset(20)
             make.left.equalTo(view).offset(20)
             make.right.equalTo(view).offset(-20)
             make.bottom.equalTo(view).offset(-20)
@@ -108,19 +89,49 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func copyAction(_ sender: UIButton) {
-        UIPasteboard.general.string = textView.text
-        view.makeToast("Copied to your clipboard~")
-    }
-
     func shareAction(_ sender: UIButton) {
-        let activityVC = UIActivityViewController(activityItems: [textView.text], applicationActivities: nil)
-        activityVC.popoverPresentationController?.sourceView = sender;
-        present(activityVC, animated: true, completion: nil)
-    }
-
-    func monstaAction(_ sender: UIButton) {
-        openUrlString(urlString: "monsterstrike-app://")
+        let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionsheet.addAction(UIAlertAction(title: "Gamewith Match", style: .default, handler: { action in
+            UIPasteboard.general.string = self.textView.text
+            // lobby
+            let urlStr = "https://xn--eckwa2aa3a9c8j8bve9d.gamewith.jp/lobby#anchor-bbs-title"
+            if #available(iOS 9.0, *) {
+                self.present(SFSafariViewController(url: URL(string: urlStr)!), animated: true, completion: nil)
+            } else {
+                self.openUrlString(urlString: urlStr)
+            }
+        }))
+        actionsheet.addAction(UIAlertAction(title: "Copy All", style: .default, handler: {action in
+            UIPasteboard.general.string = self.textView.text
+            self.view.makeToast("Copied ALL TEXT to your clipboard~")
+        }))
+        actionsheet.addAction(UIAlertAction(title: "Copy Wechat Link", style: .default, handler: {action in
+            switch self.textView.text {
+            case Regex("NO AVAILABLE LINK"):
+                self.view.makeToast("No available link yet!")
+            case Regex(".*」\n(.*)\n↑.*"):
+                if let link = Regex.lastMatch?.captures[0]
+                    , let encodedLink = link.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+                    let hackLink = "http://static.yangapp.com/enil?\(encodedLink)"
+                    UIPasteboard.general.string = hackLink
+                    self.view.makeToast("Copied HACKED WECHAT LINK to your clipboard, paste it directly in Wechat")
+                } else {
+                    self.view.makeToast("No valid link found in text!")
+                }
+            default:
+                break
+            }
+        }))
+        actionsheet.addAction(UIAlertAction(title: "Share All", style: .default, handler: {action in
+            let activityVC = UIActivityViewController(activityItems: [self.textView.text], applicationActivities: nil)
+            activityVC.popoverPresentationController?.sourceView = sender;
+            self.present(activityVC, animated: true, completion: nil)
+        }))
+        actionsheet.addAction(UIAlertAction(title: "Go to MonSt", style: .default, handler: {action in
+            self.openUrlString(urlString: "monsterstrike-app://")
+        }))
+        actionsheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(actionsheet, animated: true, completion: nil)
     }
 
     func openUrlString(urlString: String) {
@@ -137,5 +148,22 @@ class ViewController: UIViewController {
             UIApplication.shared.keyWindow?.rootViewController?.present(alert, animated: true, completion: nil)
         }
     }
+
+//  MARK: UITextViewDelegate
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        if #available(iOS 9.0, *) {
+            present(SFSafariViewController(url: URL), animated: true, completion: nil)
+            return false
+        } else {
+            return true
+        }
+    }
+
+    @available(iOS 10.0, *)
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+        present(SFSafariViewController(url: URL), animated: true, completion: nil)
+        return false
+    }
+
 }
 

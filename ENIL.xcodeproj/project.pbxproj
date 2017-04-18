@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E3EAA2A1E901F4200EAB89F /* FOT-ComicReggaeStd-B.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8E3EAA281E901F4200EAB89F /* FOT-ComicReggaeStd-B.otf */; };
+		8E3EAA2B1E901F4200EAB89F /* FOT-NewRodinProN-DB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8E3EAA291E901F4200EAB89F /* FOT-NewRodinProN-DB.otf */; };
 		8E842F1F1E5ABBE000822F06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E842F1E1E5ABBE000822F06 /* AppDelegate.swift */; };
 		8E842F211E5ABBE000822F06 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E842F201E5ABBE000822F06 /* ViewController.swift */; };
 		8E842F261E5ABBE000822F06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E842F251E5ABBE000822F06 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 		20CE10D672C7DC00F44F957E /* Pods-ENIL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ENIL.release.xcconfig"; path = "Pods/Target Support Files/Pods-ENIL/Pods-ENIL.release.xcconfig"; sourceTree = "<group>"; };
 		2D59C62BAE7EC8DD7F247546 /* Pods-ENIL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ENIL.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ENIL/Pods-ENIL.debug.xcconfig"; sourceTree = "<group>"; };
 		33866CA84AF912F23E1D8CE5 /* Pods_ENIL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ENIL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E3EAA281E901F4200EAB89F /* FOT-ComicReggaeStd-B.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FOT-ComicReggaeStd-B.otf"; sourceTree = "<group>"; };
+		8E3EAA291E901F4200EAB89F /* FOT-NewRodinProN-DB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "FOT-NewRodinProN-DB.otf"; sourceTree = "<group>"; };
 		8E842F1B1E5ABBE000822F06 /* ENIL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ENIL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E842F1E1E5ABBE000822F06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E842F201E5ABBE000822F06 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,10 +50,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8E3EAA261E901F4200EAB89F /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8E3EAA271E901F4200EAB89F /* fonts */,
+			);
+			name = Assets;
+			path = ENIL/Assets;
+			sourceTree = "<group>";
+		};
+		8E3EAA271E901F4200EAB89F /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8E3EAA281E901F4200EAB89F /* FOT-ComicReggaeStd-B.otf */,
+				8E3EAA291E901F4200EAB89F /* FOT-NewRodinProN-DB.otf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		8E842F121E5ABBDF00822F06 = {
 			isa = PBXGroup;
 			children = (
 				8E842F1D1E5ABBE000822F06 /* ENIL */,
+				8E3EAA261E901F4200EAB89F /* Assets */,
 				8E842F1C1E5ABBE000822F06 /* Products */,
 				F20CE07A5E85E338C67B5C88 /* Pods */,
 				83C29E959995201911444966 /* Frameworks */,
@@ -148,7 +171,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E3EAA2B1E901F4200EAB89F /* FOT-NewRodinProN-DB.otf in Resources */,
 				8E842F291E5ABBE000822F06 /* LaunchScreen.storyboard in Resources */,
+				8E3EAA2A1E901F4200EAB89F /* FOT-ComicReggaeStd-B.otf in Resources */,
 				8E842F261E5ABBE000822F06 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

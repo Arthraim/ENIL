@@ -40,10 +40,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return url.path.replacingOccurrences(of: "/text/", with: "")
     }
 
+    // IMPORTANT
+    // by the time didFinishLaunchingWithOptions invoked, self.viewController might not created yet
+    // so add a delay here before update text if needed
     func updateUI(content: String, shouldDelay: Bool) {
         let deadline = shouldDelay ? DispatchTime.now() + 1 : DispatchTime.now()
         DispatchQueue.main.asyncAfter(deadline: deadline) { [unowned self] in
             self.viewController?.updateText(text: content)
+            if let presented = self.viewController?.presentedViewController {
+                presented.dismiss(animated: false, completion: nil)
+            }
         }
     }
 

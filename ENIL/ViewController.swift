@@ -91,6 +91,16 @@ class ViewController: UIViewController, UITextViewDelegate {
 
     func shareAction(_ sender: UIButton) {
         let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionsheet.addAction(UIAlertAction(title: "Gamewith Match", style: .default, handler: { action in
+            UIPasteboard.general.string = self.textView.text
+            // lobby
+            let urlStr = "https://xn--eckwa2aa3a9c8j8bve9d.gamewith.jp/lobby#anchor-bbs-title"
+            if #available(iOS 9.0, *) {
+                self.present(SFSafariViewController(url: URL(string: urlStr)!), animated: true, completion: nil)
+            } else {
+                self.openUrlString(urlString: urlStr)
+            }
+        }))
         actionsheet.addAction(UIAlertAction(title: "Copy All", style: .default, handler: {action in
             UIPasteboard.general.string = self.textView.text
             self.view.makeToast("Copied ALL TEXT to your clipboard~")

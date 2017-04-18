@@ -47,6 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let deadline = shouldDelay ? DispatchTime.now() + 1 : DispatchTime.now()
         DispatchQueue.main.asyncAfter(deadline: deadline) { [unowned self] in
             self.viewController?.updateText(text: content)
+            if let presented = self.viewController?.presentedViewController {
+                presented.dismiss(animated: false, completion: nil)
+            }
         }
     }
 

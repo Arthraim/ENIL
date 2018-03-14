@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         title = "ENIL"
         view.backgroundColor = UIColor.white
 
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "ComicReggaeStd-B", size: 24)!]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ComicReggaeStd-B", size: 24)!]
 
         textView.font = UIFont(name: "NewRodinProN-DB", size: 14)
         textView.textColor = UIColor(hexString: "333333")
@@ -55,7 +55,11 @@ class ViewController: UIViewController, UITextViewDelegate {
         textView.delegate = self
         view.addSubview(textView)
         textView.snp.makeConstraints { (make) in
-            make.top.equalTo(view).offset(20 + 44 + 20)
+            if #available(iOS 11.0, *) {
+                make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(20)
+            } else {
+                make.top.equalTo(view).offset(20)
+            }
             make.left.equalTo(view).offset(20)
             make.right.equalTo(view).offset(-20)
         }
@@ -80,7 +84,11 @@ class ViewController: UIViewController, UITextViewDelegate {
             make.top.equalTo(shareButton.snp.bottom).offset(20)
             make.left.equalTo(view).offset(20)
             make.right.equalTo(view).offset(-20)
-            make.bottom.equalTo(view).offset(-20)
+            if #available(iOS 11.0, *) {
+                make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin).offset(-20)
+            } else {
+                make.bottom.equalTo(view).offset(-20)
+            }
         }
     }
 
@@ -89,7 +97,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    func shareAction(_ sender: UIButton) {
+    @objc func shareAction(_ sender: UIButton) {
         let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionsheet.addAction(UIAlertAction(title: "Gamewith Match", style: .default, handler: { action in
             UIPasteboard.general.string = self.textView.text

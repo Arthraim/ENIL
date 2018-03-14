@@ -55,7 +55,11 @@ class ViewController: UIViewController, UITextViewDelegate {
         textView.delegate = self
         view.addSubview(textView)
         textView.snp.makeConstraints { (make) in
-            make.top.equalTo(view).offset(20 + 44 + 20)
+            if #available(iOS 11.0, *) {
+                make.top.equalTo(view.safeAreaLayoutGuide.snp.topMargin).offset(20)
+            } else {
+                make.top.equalTo(view).offset(20)
+            }
             make.left.equalTo(view).offset(20)
             make.right.equalTo(view).offset(-20)
         }
@@ -80,7 +84,11 @@ class ViewController: UIViewController, UITextViewDelegate {
             make.top.equalTo(shareButton.snp.bottom).offset(20)
             make.left.equalTo(view).offset(20)
             make.right.equalTo(view).offset(-20)
-            make.bottom.equalTo(view).offset(-20)
+            if #available(iOS 11.0, *) {
+                make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottomMargin).offset(-20)
+            } else {
+                make.bottom.equalTo(view).offset(-20)
+            }
         }
     }
 

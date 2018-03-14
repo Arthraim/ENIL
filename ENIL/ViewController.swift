@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         title = "ENIL"
         view.backgroundColor = UIColor.white
 
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "ComicReggaeStd-B", size: 24)!]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ComicReggaeStd-B", size: 24)!]
 
         textView.font = UIFont(name: "NewRodinProN-DB", size: 14)
         textView.textColor = UIColor(hexString: "333333")
@@ -97,7 +97,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-    func shareAction(_ sender: UIButton) {
+    @objc func shareAction(_ sender: UIButton) {
         let actionsheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionsheet.addAction(UIAlertAction(title: "Gamewith Match", style: .default, handler: { action in
             UIPasteboard.general.string = self.textView.text

@@ -14,14 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var viewController: ViewController?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         window = UIWindow(frame: UIScreen.main.bounds)
         viewController = ViewController()
         window?.rootViewController = UINavigationController.init(rootViewController: viewController!)
         window?.makeKeyAndVisible()
 
-        if let url: URL = launchOptions?[UIApplicationLaunchOptionsKey.url] as? URL {
+        if let url: URL = launchOptions?[UIApplication.LaunchOptionsKey.url] as? URL {
             updateUI(content: extractTextFromURL(url: url),
                      shouldDelay: true)
         } else {
@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         updateUI(content: extractTextFromURL(url: url), shouldDelay: false)
         return true
     }

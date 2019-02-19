@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITextViewDelegate {
         title = "ENIL"
         view.backgroundColor = UIColor.white
 
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "ComicReggaeStd-B", size: 24)!]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "ComicReggaeStd-B", size: 24)!]
 
         textView.font = UIFont(name: "NewRodinProN-DB", size: 14)
         textView.textColor = UIColor(hexString: "333333")
@@ -114,7 +114,8 @@ class ViewController: UIViewController, UITextViewDelegate {
             self.view.makeToast("Copied ALL TEXT to your clipboard~")
         }))
         actionsheet.addAction(UIAlertAction(title: "Copy Wechat Link", style: .default, handler: {action in
-            switch self.textView.text {
+            guard let text = self.textView.text else { return }
+            switch text {
             case Regex("NO AVAILABLE LINK"):
                 self.view.makeToast("No available link yet!")
             case Regex(".*」\n(.*)\n↑.*"):
@@ -174,4 +175,3 @@ class ViewController: UIViewController, UITextViewDelegate {
     }
 
 }
-

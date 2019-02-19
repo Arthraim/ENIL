@@ -6,9 +6,9 @@ target 'ENIL' do
   use_frameworks!
 
   # Pods for ENIL
-  pod 'SnapKit', '~> 3.0.2'
-  pod 'SwiftHEXColors', '~> 1.1.0'
-  pod 'Toast-Swift', '~> 2.0.0'
-  pod "STRegex", "~> 0.4.0"
+  pod 'SnapKit', '~> 4.2.0'
+  pod 'SwiftHEXColors', '~> 1.2.0'
+  pod 'Toast-Swift', '~> 4.0.1'
+  pod "STRegex", "~> 1.1.0"
 end
 
